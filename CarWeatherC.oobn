@@ -1,0 +1,215 @@
+class CarWeatherC
+{
+    inputs = ();
+    outputs = ();
+    node_size = (80 40);
+    HR_CPT_Font_Size = "-12";
+    HR_CPT_Font_Name = "javax.swing.plaf.FontUIResource[family=Dialog,name=Dialog,style=bold,size=12]";
+    HR_CPT_Font_Italic = "0";
+    HR_CPT_Font_Weight = "400";
+    HR_TextLabel_IDs = "1";
+    HR_DBN_Num_Slices = "5";
+    HR_Desc = "";
+    HR_OOBN_CheckConsistency = "1";
+    HR_OOBN_FitExpand = "1";
+    HR_Zoom_ZoomFactor = "100";
+    HR_Groups_GroupColors = "";
+    HR_Groups_GroupNames = "";
+    HR_Groups_UserGroupsNo = "0";
+    HR_Utility_Link = "63";
+    HR_Probabilistic_Link = "63";
+    HR_Functional_Link = "63";
+    HR_Binding_Link = "63";
+    HR_Information_Arc = "63";
+    HR_Color_Interface = "21";
+    HR_Color_Instance = "0";
+    HR_Color_DiscreteFunction = "5";
+    HR_Color_Function = "4";
+    HR_Color_Utility = "36";
+    HR_Color_Decision = "17";
+    HR_Color_ContinuousChance = "48";
+    HR_Color_DiscreteChance = "16";
+    HR_Monitor_InitSD = "2";
+    HR_Monitor_Utility_Arrange = "0";
+    HR_Monitor_Mean_Variance = "1";
+    HR_Monitor_Display_Prob_DD = "0";
+    HR_Monitor_Chance_Utility = "0";
+    HR_Monitor_InitStates = "5";
+    HR_Monitor_OpenGraph = "0";
+    HR_Monitor_GraphPrecision = "100";
+    HR_Monitor_AutoUpdGraph = "0";
+    HR_Compile_MaxMinimalSeparators = "100000";
+    HR_Compile_ApproxEpsilon = "1.0E-5";
+    HR_Compile_Approximate = "0";
+    HR_Compile_SaveToMemory = "0";
+    HR_Compile_Compress = "0";
+    HR_Compile_TriangMethod = "0";
+    HR_Propagate_AutoNormal = "1";
+    HR_Propagate_AutoSum = "1";
+    HR_Propagate_Auto = "1";
+    HR_Font_Italic = "0";
+    HR_Font_Weight = "400";
+    HR_Font_Size = "-12";
+    HR_Font_Name = "javax.swing.plaf.FontUIResource[family=Dialog,name=Dialog,style=bold,size=12]";
+    HR_Grid_GridShow = "0";
+    HR_Grid_GridSnap = "0";
+    HR_Grid_Y = "40";
+    HR_Grid_X = "40";
+
+    node StarterMotor
+    {
+	label = "";
+	position = (200 240);
+	states = ("Works" "DoesNotWork");
+	HR_LinkControlPoints = "";
+	HR_LinkGroup = "[Starts:0]";
+	HR_LinkMode = "[Starts:0]";
+	HR_NodeSize = "(100, 40)";
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    node IcyWeather
+    {
+	label = "";
+	position = (100 140);
+	states = ("Cold" "Hot");
+	HR_State_2 = "";
+	HR_LinkControlPoints = "";
+	HR_LinkGroup = "[StarterMotor:0]";
+	HR_LinkMode = "[StarterMotor:0]";
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    node Moves
+    {
+	label = "";
+	position = (210 440);
+	states = ("True" "False");
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    node Starts
+    {
+	label = "";
+	position = (210 340);
+	states = ("Starts" "DoesNotStart");
+	HR_LinkControlPoints = "";
+	HR_LinkGroup = "[Moves:0]";
+	HR_LinkMode = "[Moves:0]";
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    node Gas
+    {
+	label = "";
+	position = (100 240);
+	states = ("HasGas" "NoGas");
+	HR_LinkControlPoints = "";
+	HR_LinkGroup = "[Starts:0]";
+	HR_LinkMode = "[Starts:0]";
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    node Ignition
+    {
+	label = "";
+	position = (210 140);
+	states = ("Works" "DoesNotWork");
+	HR_LinkControlPoints = "";
+	HR_LinkGroup = "[StarterMotor:0]";
+	HR_LinkMode = "[StarterMotor:0]";
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    node Radio
+    {
+	label = "";
+	position = (310 140);
+	states = ("Works" "DoesNotWork");
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    node Battery
+    {
+	label = "";
+	position = (260 40);
+	states = ("HasPower" "NoPower");
+	HR_LinkControlPoints = "";
+	HR_LinkGroup = "[Radio:0][Ignition:0]";
+	HR_LinkMode = "[Radio:0][Ignition:0]";
+	HR_Group = "0";
+	HR_Desc = "";
+	HR_State_1 = "";
+	HR_State_0 = "";
+    }
+
+    potential (StarterMotor | IcyWeather Ignition)
+    {
+	data = ((( 0.8 0.2 )	%  IcyWeather=Cold  Ignition=Works
+		 ( 0 1 ))	%  IcyWeather=Cold  Ignition=DoesNotWork
+		(( 0.98 0.02 )	%  IcyWeather=Hot  Ignition=Works
+		 ( 0 1 )));	%  IcyWeather=Hot  Ignition=DoesNotWork
+    }
+
+    potential (IcyWeather)
+    {
+	data = ( 0.1 0.9 );
+    }
+
+    potential (Moves | Starts)
+    {
+	data = (( 0.99 0.01 )	%  Starts=Starts
+		( 0 1 ));	%  Starts=DoesNotStart
+    }
+
+    potential (Starts | StarterMotor Gas)
+    {
+	data = ((( 0.99 0.01 )	%  StarterMotor=Works  Gas=HasGas
+		 ( 0 1 ))	%  StarterMotor=Works  Gas=NoGas
+		(( 0 1 )	%  StarterMotor=DoesNotWork  Gas=HasGas
+		 ( 0 1 )));	%  StarterMotor=DoesNotWork  Gas=NoGas
+    }
+
+    potential (Gas)
+    {
+	data = ( 0.9 0.1 );
+    }
+
+    potential (Ignition | Battery)
+    {
+	data = (( 0.95 0.05 )	%  Battery=HasPower
+		( 0 1 ));	%  Battery=NoPower
+    }
+
+    potential (Radio | Battery)
+    {
+	data = (( 0.98 0.02 )	%  Battery=HasPower
+		( 0 1 ));	%  Battery=NoPower
+    }
+
+    potential (Battery)
+    {
+	data = ( 0.95 0.05 );
+    }
+} % class CarWeatherC

@@ -1,0 +1,244 @@
+Mon May 15 16:52:14 2023
+
+
+Moral links:
+
+    Marrying Gas and StarterMotor
+    Marrying Ignition and IcyWeather
+
+
+Triangulating prime component with 2 members:
+    Moves, Starts
+This component is a clique of cost 4
+
+Triangulating prime component with 3 members:
+    StarterMotor, Starts, Gas
+This component is a clique of cost 8
+
+Triangulating prime component with 3 members:
+    StarterMotor, IcyWeather, Ignition
+This component is a clique of cost 8
+
+Triangulating prime component with 2 members:
+    Radio, Battery
+This component is a clique of cost 4
+
+Triangulating prime component with 2 members:
+    Ignition, Battery
+This component is a clique of cost 4
+
+
+Total cost of triangulation for all prime components is 28
+
+
+Cliques:
+
+Clique 5, 2 members, table size = 4:
+    Ignition, Battery
+
+Clique 4, 2 members, table size = 4:
+    Battery, Radio
+
+Clique 3, 3 members, table size = 8:
+    Ignition, StarterMotor, IcyWeather
+
+Clique 2, 3 members, table size = 8:
+    StarterMotor, Starts, Gas
+
+Clique 1, 2 members, table size = 4:
+    Starts, Moves
+
+Total clique table size: 28
+
+
+The junction forest:
+
+Creating junction tree with clique 5 as root ...
+
+Cliques 4 and 5 linked, separator has 1 member and table size = 2:
+    Battery
+
+Cliques 3 and 5 linked, separator has 1 member and table size = 2:
+    Ignition
+
+Cliques 2 and 3 linked, separator has 1 member and table size = 2:
+    StarterMotor
+
+Cliques 1 and 2 linked, separator has 1 member and table size = 2:
+    Starts
+
+
+Assignment of potentials to cliques:
+
+    Node StarterMotor assigned to clique 3
+    Node IcyWeather assigned to clique 3
+    Node Moves assigned to clique 1
+    Node Starts assigned to clique 2
+    Node Gas assigned to clique 2
+    Node Ignition assigned to clique 5
+    Node Radio assigned to clique 4
+    Node Battery assigned to clique 5
+
+
+Checking conditional probability potentials:
+
+    No errors found
+
+
+Beliefs for chance nodes:
+
+    StarterMotor:
+	Works      0.868205
+	DoesNotWork 0.131795
+
+    IcyWeather:
+	Cold       0.1
+	Hot        0.9
+
+    Moves:
+	True       0.765835
+	False      0.234165
+
+    Starts:
+	Starts     0.773571
+	DoesNotStart 0.226429
+
+    Gas:
+	HasGas     0.9
+	NoGas      0.1
+
+    Ignition:
+	Works      0.9025
+	DoesNotWork 0.0975
+
+    Radio:
+	Works      0.931
+	DoesNotWork 0.069
+
+    Battery:
+	HasPower   0.95
+	NoPower    0.05
+Mon May 15 16:52:18 2023
+
+
+Moral links:
+
+    Marrying Gas and StarterMotor
+    Marrying Ignition and IcyWeather
+
+
+Triangulating prime component with 2 members:
+    Moves, Starts
+This component is a clique of cost 4
+
+Triangulating prime component with 3 members:
+    StarterMotor, Starts, Gas
+This component is a clique of cost 8
+
+Triangulating prime component with 3 members:
+    StarterMotor, IcyWeather, Ignition
+This component is a clique of cost 8
+
+Triangulating prime component with 2 members:
+    Radio, Battery
+This component is a clique of cost 4
+
+Triangulating prime component with 2 members:
+    Ignition, Battery
+This component is a clique of cost 4
+
+
+Total cost of triangulation for all prime components is 28
+
+
+Cliques:
+
+Clique 5, 2 members, table size = 4:
+    Ignition, Battery
+
+Clique 4, 2 members, table size = 4:
+    Battery, Radio
+
+Clique 3, 3 members, table size = 8:
+    Ignition, StarterMotor, IcyWeather
+
+Clique 2, 3 members, table size = 8:
+    StarterMotor, Starts, Gas
+
+Clique 1, 2 members, table size = 4:
+    Starts, Moves
+
+Total clique table size: 28
+
+
+The junction forest:
+
+Creating junction tree with clique 5 as root ...
+
+Cliques 4 and 5 linked, separator has 1 member and table size = 2:
+    Battery
+
+Cliques 3 and 5 linked, separator has 1 member and table size = 2:
+    Ignition
+
+Cliques 2 and 3 linked, separator has 1 member and table size = 2:
+    StarterMotor
+
+Cliques 1 and 2 linked, separator has 1 member and table size = 2:
+    Starts
+
+
+Assignment of potentials to cliques:
+
+    Node StarterMotor assigned to clique 3
+    Node IcyWeather assigned to clique 3
+    Node Moves assigned to clique 1
+    Node Starts assigned to clique 2
+    Node Gas assigned to clique 2
+    Node Ignition assigned to clique 5
+    Node Radio assigned to clique 4
+    Node Battery assigned to clique 5
+
+
+Checking conditional probability potentials:
+
+    No errors found
+
+
+Beliefs for chance nodes:
+
+    StarterMotor:
+	Works      0.868205
+	DoesNotWork 0.131795
+
+    IcyWeather:
+	Cold       0.1
+	Hot        0.9
+
+    Moves:
+	True       0.765835
+	False      0.234165
+
+    Starts:
+	Starts     0.773571
+	DoesNotStart 0.226429
+
+    Gas:
+	HasGas     0.9
+	NoGas      0.1
+
+    Ignition:
+	Works      0.9025
+	DoesNotWork 0.0975
+
+    Radio:
+	Works      0.931
+	DoesNotWork 0.069
+
+    Battery:
+	HasPower   0.95
+	NoPower    0.05
+
+    Starts:
+	Starts     0.773571
+	DoesNotStart 0.226429
